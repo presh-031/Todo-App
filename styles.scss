@@ -1,7 +1,84 @@
-@import 'config';
+@import "config";
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+:root {
+  font-size: 62.5%;
+}
+body {
+  font-family: $josefin-sans;
+  background-color: $very-light-gray;
+}
+.main {
+  height: 20rem;
+  padding: 4rem 2rem 0 2rem;
+  background-image: url("/images/bg-mobile-light.jpg");
+  outline: 1px solid red;
+  .title-and-mode {
+    display: flex;
+    justify-content: space-between;
+    p {
+      color: $very-light-gray;
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: 0.8rem;
+    }
+  }
+  form {
+    // outline: 1px solid red;
+    margin-top: 4rem;
+    input {
+      width: 100%;
+      padding: 1.5rem;
+      font-size: 1rem;
+      outline: none;
+      border: none;
+    }
+  }
+  ul {
+    margin-top: 1.5rem;
+    box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.2);
+    list-style-type: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .bar {
+      // outline: 1px solid red;
+      order: 1;
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem;
+      div {
+        display: flex;
+        // outline: 1px solid red;
+        column-gap: 0.9rem;
+      }
+    }
+    .hidden {
+      display: none;
+    }
+    li {
+      // outline: 1px solid blue;
+      padding: 1.5rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      input {
+        margin-right: 1rem;
+      }
+      p {
+        width: 100%;
+        // outline: 1px solid red;
+      }
+      img {
+        // outline: 1px solid red;
+        // align-self: flex-end;
+        // float: right;
+      }
+    }
+  }
 }

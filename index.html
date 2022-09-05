@@ -8,5 +8,27 @@
     <title>Frontend Mentor | Todo app</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="main">
+      <div class="title-and-mode">
+        <p>TODO</p>
+        <div><img src="./images/icon-moon.svg" alt="" /></div>
+      </div>
+      <form action="#">
+        <input type="text" name="new-task" id="new-task" placeholder="Create a new todo..." />
+      </form>
+      <ul>
+        <div class="hidden bar">
+          <p><span class="items-count">0</span> items left</p>
+          <div>
+            <p>All</p>
+            <p>Active</p>
+            <p>Completed</p>
+          </div>
+          <p>Clear Completed</p>
+        </div>
+      </ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
