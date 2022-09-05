@@ -38,6 +38,9 @@ body {
       border: none;
     }
   }
+  // .hidden {
+  //   display: none;
+  // }
   ul {
     margin-top: 1.5rem;
     box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.2);
@@ -75,9 +78,7 @@ body {
         // outline: 1px solid red;
       }
       img {
-        // outline: 1px solid red;
-        // align-self: flex-end;
-        // float: right;
+        cursor: pointer;
       }
     }
   }
