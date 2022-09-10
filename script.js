@@ -35,8 +35,8 @@ function updateCount(num) {
 
   console.log(itemCount.innerHTML);
   if (itemCount.innerHTML <= 0) {
-    hideBar();
-    // itemCount.innerHTML = 0;
+    // hideBar();
+    itemCount.innerHTML = 0;
   }
 }
 
@@ -49,25 +49,33 @@ function showBar() {
 }
 
 // Delete tasks
-function deleteTask(task) {
+function deleteTask(e, task) {
   task.remove();
-  updateCount(-1);
+
+  // deleting the task should only decrement the counter if it is not already checked.
+
+  console.log(e.target.previousElementSibling);
+
+  if (!e.target.previousElementSibling.classList.contains("strike-through")) {
+    updateCount(-1);
+    // console.log("count -1");
+  }
 }
 allTasks.addEventListener("click", (e) => {
   // console.log(e.target.parentElement);
   if (e.target.classList.contains("delete-task")) {
-    deleteTask(e.target.parentElement);
+    deleteTask(e, e.target.parentElement);
   }
 });
 
 // Marking and unmarking tasks
 function markTask(e) {
   updateCount(-1);
-  e.target.nextElementSibling.style.textDecoration = "line-through";
+  e.target.nextElementSibling.classList.add("strike-through");
 }
 function unMarkTask(e) {
   updateCount(1);
-  e.target.nextElementSibling.style.textDecoration = "none";
+  e.target.nextElementSibling.classList.remove("strike-through");
 }
 allTasks.addEventListener("click", (e) => {
   if (e.target.classList.contains("checkbox")) {
