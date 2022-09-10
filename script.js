@@ -4,6 +4,8 @@ const allTasks = document.querySelector("ul");
 const itemCount = document.querySelector(".items-count");
 const bar = document.querySelector(".bar");
 const removeTask = document.querySelector(".delete-task");
+const completed = false; //working on this for checkbox
+// const clearTask = document.querySelector(".checkbox");
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
@@ -21,7 +23,7 @@ function addNewTask() {
 
   eachTask.innerHTML =
     "<input type='checkbox' class='checkbox'> " +
-    `<p>${newTaskInput.value}</p>` +
+    `<p class='new-task'>${newTaskInput.value}</p>` +
     "<img class='delete-task' src='./images/icon-cross.svg'>";
 
   allTasks.append(eachTask);
@@ -30,7 +32,9 @@ function addNewTask() {
 
 function updateCount(num) {
   itemCount.innerHTML = +itemCount.innerHTML + num;
-  if (itemCount.innerHTML) {
+
+  console.log(itemCount.innerHTML);
+  if (itemCount.innerHTML === 0) {
     hideBar();
   }
 }
@@ -64,3 +68,26 @@ allTasks.addEventListener("click", (e) => {
 //     console.log("Checkbox is not checked..");
 //   }
 // });
+
+function markTask() {
+  updateCount(-1);
+  document.querySelector(".new-task").style.textDecoration = "line-through";
+}
+allTasks.addEventListener("click", (e) => {
+  const clearTask = document.querySelector(".checkbox");
+  if (e.target.classList.contains("checkbox")) {
+    clearTask.addEventListener("change", () => {
+      if (clearTask.checked) {
+        console.log("Checkbox is checked..");
+      } else {
+        console.log("Checkbox is not checked..");
+      }
+    });
+  }
+});
+
+// if (clearTask) {
+//   console.log("Checkbox is checked..");
+// } else {
+//   console.log("Checkbox is not checked..");
+// }
