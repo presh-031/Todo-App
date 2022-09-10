@@ -4,8 +4,6 @@ const allTasks = document.querySelector("ul");
 const itemCount = document.querySelector(".items-count");
 const bar = document.querySelector(".bar");
 const removeTask = document.querySelector(".delete-task");
-// const completed = false; //working on this for checkbox
-// const clearTask = document.querySelector(".checkbox");
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
@@ -33,11 +31,12 @@ function addNewTask() {
 function updateCount(num) {
   itemCount.innerHTML = +itemCount.innerHTML + num;
 
-  console.log(itemCount.innerHTML);
+  // console.log(itemCount.innerHTML);
   if (itemCount.innerHTML <= 0) {
     // hideBar();
     itemCount.innerHTML = 0;
   }
+  // itemCount.innerHTML = allTasks.children.length - 1;
 }
 
 function hideBar() {
@@ -53,12 +52,8 @@ function deleteTask(e, task) {
   task.remove();
 
   // deleting the task should only decrement the counter if it is not already checked.
-
-  console.log(e.target.previousElementSibling);
-
   if (!e.target.previousElementSibling.classList.contains("strike-through")) {
     updateCount(-1);
-    // console.log("count -1");
   }
 }
 allTasks.addEventListener("click", (e) => {
@@ -86,3 +81,20 @@ allTasks.addEventListener("click", (e) => {
     }
   }
 });
+
+////////The buttons
+// Clear completed tasks
+const clearCompletedBtn = document.querySelector(".clear-completed");
+clearCompletedBtn.addEventListener("click", clearCompletedTasks);
+
+function clearCompletedTasks() {
+  // loop starts at i to ignore the bar
+  for (let i = 1; i < allTasks.children.length; i++) {
+    console.log(allTasks.children[i].children);
+    if (allTasks.children[i].children[0].checked) {
+      allTasks.children[i].remove();
+    }
+  }
+}
+
+// Show only completed tasks
