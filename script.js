@@ -90,11 +90,59 @@ clearCompletedBtn.addEventListener("click", clearCompletedTasks);
 function clearCompletedTasks() {
   // loop starts at i to ignore the bar
   for (let i = 1; i < allTasks.children.length; i++) {
-    console.log(allTasks.children[i].children);
-    if (allTasks.children[i].children[0].checked) {
-      allTasks.children[i].remove();
+    const checkBoxes = allTasks.children[i].children[0];
+    // console.log(allTasks.children[i].children);
+    if (checkBoxes.checked) {
+      checkBoxes.parentElement.remove();
+      // allTasks.children[i].children[0].parentElement.remove();
     }
   }
 }
 
 // Show only completed tasks
+const completedBtn = document.querySelector(".completed");
+completedBtn.addEventListener("click", showCompletedTasks);
+
+function showCompletedTasks() {
+  // loop starts at i to ignore the bar
+  for (let i = 1; i < allTasks.children.length; i++) {
+    // console.log(allTasks.children[i].children);
+    if (!allTasks.children[i].children[0].checked) {
+      allTasks.children[i].classList.add("hidden");
+      // updateCount(-1);
+      // console.log(allTasks.children[i]);
+    } else {
+      allTasks.children[i].classList.remove("hidden");
+    }
+  }
+}
+
+// Show only active tasks
+const activeBtn = document.querySelector(".active");
+activeBtn.addEventListener("click", showActiveTasks);
+
+function showActiveTasks() {
+  // loop starts at i to ignore the bar
+  for (let i = 1; i < allTasks.children.length; i++) {
+    // console.log(allTasks.children[i].children);
+    if (allTasks.children[i].children[0].checked) {
+      allTasks.children[i].classList.add("hidden");
+      // updateCount(-1);
+      // console.log(allTasks.children[i]);
+    } else {
+      allTasks.children[i].classList.remove("hidden");
+    }
+  }
+}
+// Show all tasks
+const allBtn = document.querySelector(".all");
+allBtn.addEventListener("click", showAllTasks);
+
+function showAllTasks() {
+  // loop starts at i to ignore the bar
+  for (let i = 1; i < allTasks.children.length; i++) {
+    // console.log(allTasks.children[i].children);
+
+    allTasks.children[i].classList.remove("hidden");
+  }
+}
