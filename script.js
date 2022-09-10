@@ -4,7 +4,7 @@ const allTasks = document.querySelector("ul");
 const itemCount = document.querySelector(".items-count");
 const bar = document.querySelector(".bar");
 const removeTask = document.querySelector(".delete-task");
-const completed = false; //working on this for checkbox
+// const completed = false; //working on this for checkbox
 // const clearTask = document.querySelector(".checkbox");
 
 document.addEventListener("keydown", (e) => {
@@ -34,8 +34,9 @@ function updateCount(num) {
   itemCount.innerHTML = +itemCount.innerHTML + num;
 
   console.log(itemCount.innerHTML);
-  if (itemCount.innerHTML === 0) {
+  if (itemCount.innerHTML <= 0) {
     hideBar();
+    // itemCount.innerHTML = 0;
   }
 }
 
@@ -59,35 +60,21 @@ allTasks.addEventListener("click", (e) => {
   }
 });
 
-// Clear Tasks
-// const clearTask = document.querySelector(".checkbox");
-// clearTask.addEventListener("change", function () {
-//   if (this.checked) {
-//     console.log("Checkbox is checked..");
-//   } else {
-//     console.log("Checkbox is not checked..");
-//   }
-// });
-
-function markTask() {
+// Marking and unmarking tasks
+function markTask(e) {
   updateCount(-1);
-  document.querySelector(".new-task").style.textDecoration = "line-through";
+  e.target.nextElementSibling.style.textDecoration = "line-through";
+}
+function unMarkTask(e) {
+  updateCount(1);
+  e.target.nextElementSibling.style.textDecoration = "none";
 }
 allTasks.addEventListener("click", (e) => {
-  const clearTask = document.querySelector(".checkbox");
   if (e.target.classList.contains("checkbox")) {
-    clearTask.addEventListener("change", () => {
-      if (clearTask.checked) {
-        console.log("Checkbox is checked..");
-      } else {
-        console.log("Checkbox is not checked..");
-      }
-    });
+    if (e.target.checked) {
+      markTask(e);
+    } else {
+      unMarkTask(e);
+    }
   }
 });
-
-// if (clearTask) {
-//   console.log("Checkbox is checked..");
-// } else {
-//   console.log("Checkbox is not checked..");
-// }
