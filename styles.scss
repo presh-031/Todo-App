@@ -18,7 +18,6 @@ body {
   height: 20rem;
   padding: 4rem 2rem 0 2rem;
   background-image: url("/images/bg-mobile-light.jpg");
-  border: 1px solid red;
   .title-and-mode {
     display: flex;
     justify-content: space-between;
@@ -30,7 +29,6 @@ body {
     }
   }
   form {
-    // outline: 1px solid red;
     margin-top: 4rem;
     input {
       width: 100%;
@@ -94,6 +92,7 @@ body {
       }
       img {
         // Using visibility because I want to maintain the layout.
+        // Consider mobile devices for this functionality!!
         visibility: hidden;
         // fill: $dark-grayish-blue;
       }
@@ -106,7 +105,6 @@ body {
       img {
         visibility: visible;
         cursor: pointer;
-        // outline: 1px solid red;
       }
     }
     .bar {
@@ -125,7 +123,6 @@ body {
     }
   }
   .filter-bar {
-    // outline: 1px solid red;
     margin-top: 1.5rem;
     display: flex;
     box-shadow: 0 -5px 20px 0 rgba($color: #000000, $alpha: 0.2);
@@ -137,5 +134,8 @@ body {
     background-color: #fff;
     color: $dark-grayish-blue;
     border-radius: 8px;
+    .clicked {
+      color: $bright-blue;
+    }
   }
 }

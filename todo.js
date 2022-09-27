@@ -90,8 +90,7 @@ function editTaskStatus(e) {
   }
 }
 
-////////////The buttons
-// Clear completed tasks
+////////// Clear completed tasks btn
 const clearCompletedBtn = document.querySelector(".clear-completed");
 // Add a modal for are you sure before clearing all completed
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
@@ -106,6 +105,7 @@ function clearCompletedTasks() {
   });
 }
 
+////////////Filter Btns
 // Show only completed tasks
 const completedBtn = document.querySelector(".completed");
 completedBtn.addEventListener("click", showCompletedTasks);
@@ -140,10 +140,19 @@ function showActiveTasks() {
 // Show all tasks
 const allBtn = document.querySelector(".all");
 allBtn.addEventListener("click", showAllTasks);
-
 function showAllTasks() {
   const allListItems = [...allTasks.children];
   allListItems.forEach((li) => {
     li.classList.remove("hidden");
   });
 }
+
+//Update filterBtns colors
+const filterBtns = document.querySelectorAll(".filterBtn");
+filterBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    filterBtns.forEach((btn) => btn.classList.remove("clicked"));
+    btn.classList.add("clicked");
+  });
+});
+/////////////Dark Mode
