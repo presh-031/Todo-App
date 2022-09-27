@@ -40,10 +40,10 @@ function updateCount(num) {
   itemCount.innerHTML = +itemCount.innerHTML + num;
 
   // console.log(itemCount.innerHTML);
-  if (itemCount.innerHTML <= 0) {
-    // hideBar();
-    itemCount.innerHTML = 0;
-  }
+  // if (itemCount.innerHTML <= 0) {
+  // hideBar();
+  // itemCount.innerHTML = 0;
+  // }
   // itemCount.innerHTML = allTasks.children.length - 1;
 }
 
@@ -58,16 +58,14 @@ function showBar() {
 // Delete tasks
 function deleteTask(e) {
   e.parentElement.remove();
-
-  // deleting the task should only decrement the counter if it is not already checked.
-  // if (!e.target.previousElementSibling.classList.contains("strike-through")) {
-  //   updateCount(-1);
-  // }
+  updateCount(-1);
 }
+
 // Edit tasks
 function editTask(e) {
   newTaskInput.value = e.innerHTML;
   e.parentElement.remove();
+  updateCount(-1);
 }
 
 // Marking and unmarking tasks
