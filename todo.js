@@ -54,7 +54,8 @@ function updateBarVisibility() {
 
   const allListItems = [...allTasks.children];
   // console.log(allListItems.length);
-  if (allListItems.length === 0) {
+  // The bar is one of the children elements of the allTasks ul (important for styling purposes)
+  if (allListItems.length === 1) {
     bar.classList.add("hidden");
   }
 }
