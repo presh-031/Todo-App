@@ -1,11 +1,13 @@
 "use strict";
 const newTaskInput = document.querySelector("#new-task");
 const allTasks = document.querySelector("ul");
-const itemCount = document.querySelector(".items-count");
 const bar = document.querySelector(".bar");
 const removeTask = document.querySelector(".delete-task");
 
+const itemCountEl = document.querySelector(".items-count");
+
 const data = {};
+let itemCount = 0;
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
@@ -37,14 +39,13 @@ function addNewTask() {
 }
 
 function updateCount(num) {
-  itemCount.innerHTML = +itemCount.innerHTML + num;
-
-  // console.log(itemCount.innerHTML);
-  // if (itemCount.innerHTML <= 0) {
+  itemCount = itemCount + num;
+  itemCountEl.innerHTML = itemCount;
+  // if (itemCountEl.innerHTML <= 0) {
   // hideBar();
-  // itemCount.innerHTML = 0;
+  // itemCountEl.innerHTML = 0;
   // }
-  // itemCount.innerHTML = allTasks.children.length - 1;
+  // itemCountEl.innerHTML = allTasks.children.length - 1;
 }
 
 function hideBar() {
@@ -58,8 +59,10 @@ function showBar() {
 // Delete tasks
 function deleteTask(e) {
   e.parentElement.remove();
-  // should only further decrease count if not already checked.
-  updateCount(-1);
+  // should only further decrease count if its sibling checkbox not already checked.
+  if (!e.parentElement.children[0].checked) {
+    updateCount(-1);
+  }
 }
 
 // Edit tasks
@@ -72,20 +75,20 @@ function editTask(e) {
 // Marking and unmarking tasks
 function editTaskStatus(e) {
   if (e.checked) {
-    console.log("checked");
+    // console.log("checked");
     e.nextElementSibling.classList.add("strike-through");
     updateCount(-1);
   } else {
-    console.log("unchecked");
     e.nextElementSibling.classList.remove("strike-through");
     updateCount(1);
+    // console.log("unchecked");
   }
 }
 
 ////////The buttons
 // Clear completed tasks
 const clearCompletedBtn = document.querySelector(".clear-completed");
-// Add a modal for are you sure.
+// Add a modal for are you sure before clearing all completed
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
 
 function clearCompletedTasks() {
