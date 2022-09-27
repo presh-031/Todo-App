@@ -85,6 +85,7 @@ function editTaskStatus(e) {
 ////////The buttons
 // Clear completed tasks
 const clearCompletedBtn = document.querySelector(".clear-completed");
+// Add a modal for are you sure.
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
 
 function clearCompletedTasks() {
@@ -102,17 +103,24 @@ const completedBtn = document.querySelector(".completed");
 completedBtn.addEventListener("click", showCompletedTasks);
 
 function showCompletedTasks() {
-  // loop starts at i to ignore the bar
-  for (let i = 1; i < allTasks.children.length; i++) {
-    // console.log(allTasks.children[i].children);
-    if (!allTasks.children[i].children[0].checked) {
-      allTasks.children[i].classList.add("hidden");
-      // updateCount(-1);
-      // console.log(allTasks.children[i]);
-    } else {
-      allTasks.children[i].classList.remove("hidden");
+  const allListItems = [...allTasks.children];
+  allListItems.forEach((li) => {
+    // console.log(li.children);
+    if (li.children[0].checked) {
+      li.classList.add("hidden");
     }
-  }
+  });
+  // loop starts at i to ignore the bar
+  // for (let i = 1; i < allTasks.children.length; i++) {
+  //   // console.log(allTasks.children[i].children);
+  //   if (!allTasks.children[i].children[0].checked) {
+  //     allTasks.children[i].classList.add("hidden");
+  //     // updateCount(-1);
+  //     // console.log(allTasks.children[i]);
+  //   } else {
+  //     allTasks.children[i].classList.remove("hidden");
+  //   }
+  // }
 }
 
 // Show only active tasks
