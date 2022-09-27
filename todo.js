@@ -14,7 +14,7 @@ document.addEventListener("keydown", (e) => {
     e.preventDefault();
     if (newTaskInput.value) {
       acceptData();
-      showBar();
+      updateBarVisibility();
     }
   }
 });
@@ -41,24 +41,28 @@ function addNewTask() {
 function updateCount(num) {
   itemCount = itemCount + num;
   itemCountEl.innerHTML = itemCount;
-  // if (itemCountEl.innerHTML <= 0) {
-  // hideBar();
-  // itemCountEl.innerHTML = 0;
+
+  // Should only hidebar when there's no visible li
   // }
-  // itemCountEl.innerHTML = allTasks.children.length - 1;
+  // function hideBar() {
+  //   bar.classList.add("hidden");
+  // }
 }
 
-function hideBar() {
-  bar.classList.add("hidden");
-}
-
-function showBar() {
+function updateBarVisibility() {
   bar.classList.remove("hidden");
+
+  const allListItems = [...allTasks.children];
+  // console.log(allListItems.length);
+  if (allListItems.length === 0) {
+    bar.classList.add("hidden");
+  }
 }
 
 // Delete tasks
 function deleteTask(e) {
   e.parentElement.remove();
+  updateBarVisibility();
   // should only further decrease count if its sibling checkbox not already checked.
   if (!e.parentElement.children[0].checked) {
     updateCount(-1);
@@ -85,7 +89,7 @@ function editTaskStatus(e) {
   }
 }
 
-////////The buttons
+////////////The buttons
 // Clear completed tasks
 const clearCompletedBtn = document.querySelector(".clear-completed");
 // Add a modal for are you sure before clearing all completed
