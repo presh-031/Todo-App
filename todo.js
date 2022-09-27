@@ -11,7 +11,6 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
     if (newTaskInput.value) {
-      // addNewTask();
       acceptData();
       showBar();
     }
@@ -29,7 +28,8 @@ function addNewTask() {
 
   eachTask.innerHTML =
     "<input type='checkbox' class='checkbox'> " +
-    `<p class='new-task'>${data.text}</p>` +
+    // Will be adding an icon before the delete-icon for editing tasks instead.
+    `<p onClick='editTask(this)' class='new-task'>${data.text}</p>` +
     "<img onClick='deleteTask(this)' class='delete-task' src='./images/icon-cross.svg'>";
 
   allTasks.append(eachTask);
@@ -63,6 +63,11 @@ function deleteTask(e) {
   // if (!e.target.previousElementSibling.classList.contains("strike-through")) {
   //   updateCount(-1);
   // }
+}
+// Edit tasks
+function editTask(e) {
+  newTaskInput.value = e.innerHTML;
+  e.parentElement.remove();
 }
 
 // Marking and unmarking tasks
