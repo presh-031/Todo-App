@@ -107,20 +107,11 @@ function showCompletedTasks() {
   allListItems.forEach((li) => {
     // console.log(li.children);
     if (li.children[0].checked) {
+      li.classList.remove("hidden");
+    } else {
       li.classList.add("hidden");
     }
   });
-  // loop starts at i to ignore the bar
-  // for (let i = 1; i < allTasks.children.length; i++) {
-  //   // console.log(allTasks.children[i].children);
-  //   if (!allTasks.children[i].children[0].checked) {
-  //     allTasks.children[i].classList.add("hidden");
-  //     // updateCount(-1);
-  //     // console.log(allTasks.children[i]);
-  //   } else {
-  //     allTasks.children[i].classList.remove("hidden");
-  //   }
-  // }
 }
 
 // Show only active tasks
@@ -128,25 +119,23 @@ const activeBtn = document.querySelector(".active");
 activeBtn.addEventListener("click", showActiveTasks);
 
 function showActiveTasks() {
-  // loop starts at i to ignore the bar
-  for (let i = 1; i < allTasks.children.length; i++) {
-    // console.log(allTasks.children[i].children);
-    if (allTasks.children[i].children[0].checked) {
-      allTasks.children[i].classList.add("hidden");
-      // updateCount(-1);
-      // console.log(allTasks.children[i]);
+  const allListItems = [...allTasks.children];
+  allListItems.forEach((li) => {
+    // console.log(li.children);
+    if (li.children[0].checked) {
+      li.classList.add("hidden");
     } else {
-      allTasks.children[i].classList.remove("hidden");
+      li.classList.remove("hidden");
     }
-  }
+  });
 }
 // Show all tasks
 const allBtn = document.querySelector(".all");
 allBtn.addEventListener("click", showAllTasks);
 
 function showAllTasks() {
-  // loop starts at i to ignore the bar
-  for (let i = 1; i < allTasks.children.length; i++) {
-    allTasks.children[i].classList.remove("hidden");
-  }
+  const allListItems = [...allTasks.children];
+  allListItems.forEach((li) => {
+    li.classList.remove("hidden");
+  });
 }
