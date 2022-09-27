@@ -38,6 +38,10 @@ body {
       font-size: 1rem;
       outline: none;
       border: none;
+      border-radius: 8px;
+      color: $dark-grayish-blue;
+      font-size: 1.2rem;
+      font-family: inherit;
     }
   }
   // .hidden {
@@ -51,6 +55,9 @@ body {
     background-color: #fff;
     display: flex;
     flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    color: $dark-grayish-blue;
     // outline: 1px solid red;
     // .bar {
     //   // outline: 1px solid red;
@@ -72,14 +79,14 @@ body {
     li {
       // outline: 1px solid blue;
       padding: 1.5rem;
-      font-size: 1rem;
+      font-size: 1.2rem;
       display: flex;
       align-items: center;
       background-color: #fff;
-      outline: 1px solid red;
+      outline: 1px solid $dark-grayish-blue;
       input {
         margin-right: 1rem;
-        // outline: 1px solid red;
+        outline: none;
       }
       p {
         width: 100%;
@@ -88,9 +95,11 @@ body {
       img {
         // Using visibility because I want to maintain the layout.
         visibility: hidden;
+        // fill: $dark-grayish-blue;
       }
       .strike-through {
         text-decoration: line-through;
+        color: $light-grayish-blue;
       }
     }
     li:hover {
@@ -102,13 +111,10 @@ body {
     }
   }
   .bar {
-    // outline: 1px solid red;
     order: 1;
     display: flex;
     justify-content: space-between;
     padding: 1.5rem;
-    // outline: 1px solid red;
-    // margin-top: 4rem;
     div {
       display: flex;
       // outline: 1px solid red;
