@@ -27,7 +27,7 @@ function addNewTask() {
   const eachTask = document.createElement("li");
 
   eachTask.innerHTML =
-    "<input type='checkbox' class='checkbox'> " +
+    "<input onClick='editTaskStatus(this)' type='checkbox' class='checkbox'> " +
     // Will be adding an icon before the delete-icon for editing tasks instead.
     `<p onClick='editTask(this)' class='new-task'>${data.text}</p>` +
     "<img onClick='deleteTask(this)' class='delete-task' src='./images/icon-cross.svg'>";
@@ -69,23 +69,17 @@ function editTask(e) {
 }
 
 // Marking and unmarking tasks
-function markTask(e) {
-  updateCount(-1);
-  e.target.nextElementSibling.classList.add("strike-through");
-}
-function unMarkTask(e) {
-  updateCount(1);
-  e.target.nextElementSibling.classList.remove("strike-through");
-}
-allTasks.addEventListener("click", (e) => {
-  if (e.target.classList.contains("checkbox")) {
-    if (e.target.checked) {
-      markTask(e);
-    } else {
-      unMarkTask(e);
-    }
+function editTaskStatus(e) {
+  if (e.checked) {
+    console.log("checked");
+    e.nextElementSibling.classList.add("strike-through");
+    updateCount(-1);
+  } else {
+    console.log("unchecked");
+    e.nextElementSibling.classList.remove("strike-through");
+    //   updateCount(1);
   }
-});
+}
 
 ////////The buttons
 // Clear completed tasks
