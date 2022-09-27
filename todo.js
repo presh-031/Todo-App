@@ -58,6 +58,7 @@ function showBar() {
 // Delete tasks
 function deleteTask(e) {
   e.parentElement.remove();
+  // should only further decrease count if not already checked.
   updateCount(-1);
 }
 
@@ -77,7 +78,7 @@ function editTaskStatus(e) {
   } else {
     console.log("unchecked");
     e.nextElementSibling.classList.remove("strike-through");
-    //   updateCount(1);
+    updateCount(1);
   }
 }
 
@@ -90,7 +91,7 @@ function clearCompletedTasks() {
   // loop starts at i to ignore the bar
   for (let i = 1; i < allTasks.children.length; i++) {
     const checkBoxes = allTasks.children[i].children[0];
-    // console.log(allTasks.children[i].children);
+    console.log(allTasks.children[i].children);
     if (checkBoxes.checked) {
       checkBoxes.parentElement.remove();
       // allTasks.children[i].children[0].parentElement.remove();

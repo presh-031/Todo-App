@@ -79,16 +79,25 @@ body {
       outline: 1px solid red;
       input {
         margin-right: 1rem;
+        // outline: 1px solid red;
       }
       p {
         width: 100%;
         // outline: 1px solid red;
       }
       img {
-        cursor: pointer;
+        // Using visibility because I want to maintain the layout.
+        visibility: hidden;
       }
       .strike-through {
         text-decoration: line-through;
+      }
+    }
+    li:hover {
+      img {
+        visibility: visible;
+        cursor: pointer;
+        // outline: 1px solid red;
       }
     }
   }

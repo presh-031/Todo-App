@@ -2,6 +2,33 @@
 
 <!-- The dom- heavy approach vs the this approach in the functionalities, achieving the same but the dom being a lot of redndant code and if html structure changes there'll be  a lot to change with do vs nothing to change with this. -->
 
+<!-- // Marking and unmarking tasks
+function editTaskStatus(e) {
+  if (e.checked) {
+    console.log("checked");
+    e.nextElementSibling.classList.add("strike-through");
+      updateCount(-1);
+  } else {
+    console.log("unchecked");
+    e.nextElementSibling.classList.remove("strike-through");
+    //   updateCount(1);
+  } -->
+<!-- }
+// function markTask(e) {
+// }
+// function unMarkTask(e) {
+//   e.target.nextElementSibling.classList.remove("strike-through");
+// }
+// allTasks.addEventListener("click", (e) => {
+//   if (e.target.classList.contains("checkbox")) {
+//     if (e.target.checked) {
+//       markTask(e);
+//     } else {
+//       unMarkTask(e);
+//     }
+//   }
+// }); -->
+
 This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
