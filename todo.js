@@ -5,24 +5,32 @@ const itemCount = document.querySelector(".items-count");
 const bar = document.querySelector(".bar");
 const removeTask = document.querySelector(".delete-task");
 
+const data = {};
+
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
     if (newTaskInput.value) {
-      addNewTask();
+      // addNewTask();
+      acceptData();
       showBar();
-      newTaskInput.value = "";
     }
   }
 });
+
+function acceptData() {
+  data.text = newTaskInput.value;
+  addNewTask();
+  newTaskInput.value = "";
+}
 
 function addNewTask() {
   const eachTask = document.createElement("li");
 
   eachTask.innerHTML =
     "<input type='checkbox' class='checkbox'> " +
-    `<p class='new-task'>${newTaskInput.value}</p>` +
-    "<img class='delete-task' src='./images/icon-cross.svg'>";
+    `<p class='new-task'>${data.text}</p>` +
+    "<img onClick='deleteTask(this)' class='delete-task' src='./images/icon-cross.svg'>";
 
   allTasks.append(eachTask);
   updateCount(1);
@@ -48,20 +56,14 @@ function showBar() {
 }
 
 // Delete tasks
-function deleteTask(e, task) {
-  task.remove();
+function deleteTask(e) {
+  e.parentElement.remove();
 
   // deleting the task should only decrement the counter if it is not already checked.
-  if (!e.target.previousElementSibling.classList.contains("strike-through")) {
-    updateCount(-1);
-  }
+  // if (!e.target.previousElementSibling.classList.contains("strike-through")) {
+  //   updateCount(-1);
+  // }
 }
-allTasks.addEventListener("click", (e) => {
-  // console.log(e.target.parentElement);
-  if (e.target.classList.contains("delete-task")) {
-    deleteTask(e, e.target.parentElement);
-  }
-});
 
 // Marking and unmarking tasks
 function markTask(e) {
@@ -141,8 +143,6 @@ allBtn.addEventListener("click", showAllTasks);
 function showAllTasks() {
   // loop starts at i to ignore the bar
   for (let i = 1; i < allTasks.children.length; i++) {
-    // console.log(allTasks.children[i].children);
-
     allTasks.children[i].classList.remove("hidden");
   }
 }
