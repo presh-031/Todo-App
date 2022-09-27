@@ -88,15 +88,13 @@ const clearCompletedBtn = document.querySelector(".clear-completed");
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
 
 function clearCompletedTasks() {
-  // loop starts at i to ignore the bar
-  for (let i = 1; i < allTasks.children.length; i++) {
-    const checkBoxes = allTasks.children[i].children[0];
-    console.log(allTasks.children[i].children);
-    if (checkBoxes.checked) {
-      checkBoxes.parentElement.remove();
-      // allTasks.children[i].children[0].parentElement.remove();
+  const allListItems = [...allTasks.children];
+  allListItems.forEach((li) => {
+    // console.log(li.children);
+    if (li.children[0].checked) {
+      li.remove();
     }
-  }
+  });
 }
 
 // Show only completed tasks
