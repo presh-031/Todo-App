@@ -161,8 +161,10 @@ function toggleColorMode() {
   const currentTheme = localStorage.getItem("theme");
   if (currentTheme == "dark") {
     document.body.classList.toggle("dark-theme");
+    btn.src = "./images/icon-moon.svg";
   } else if (currentTheme == "light") {
     document.body.classList.toggle("light-theme");
+    btn.src = "./images/icon-sun.svg";
   }
 
   btn.addEventListener("click", function () {
@@ -174,5 +176,13 @@ function toggleColorMode() {
       var theme = document.body.classList.contains("dark-theme") ? "dark" : "light";
     }
     localStorage.setItem("theme", theme);
+    toggleBtnImg(btn, theme);
   });
+}
+function toggleBtnImg(btn, theme) {
+  if (theme === "dark") {
+    btn.src = "./images/icon-moon.svg";
+  } else if (theme === "light") {
+    btn.src = "./images/icon-sun.svg";
+  }
 }
