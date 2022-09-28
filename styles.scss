@@ -101,7 +101,7 @@ body {
       }
       .strike-through {
         text-decoration: line-through;
-        color: $light-grayish-blue;
+        // color: $light-grayish-blue;
       }
     }
     li:hover {
@@ -116,9 +116,12 @@ body {
       font-size: 1.2rem;
       div {
         padding: 1.5rem;
-        background-color: #fff;
+        // background-color: #fff;
         display: flex;
         justify-content: space-between;
+        .clear-completed {
+          cursor: pointer;
+        }
       }
     }
     .hidden {
@@ -134,9 +137,12 @@ body {
     padding: 1.5rem;
     font-size: 1.2rem;
     font-weight: 700;
-    background-color: #fff;
-    color: $dark-grayish-blue;
+    // background-color: #fff;
+    // color: $dark-grayish-blue;
     border-radius: 8px;
+    .filterBtn {
+      cursor: pointer;
+    }
     .clicked {
       color: $bright-blue;
     }
@@ -169,54 +175,85 @@ body {
       --ul-bkg-color: #fff;
       --ul-text-color: $dark-grayish-blue;
       li {
+        --li-bkg-color: #fff;
+        input {
+        }
+        p {
+        }
+        img {
+        }
+        .strike-through {
+          --strike-color: $light-grayish-blue;
+        }
       }
     }
+    li:hover {
+      img {
+      }
+    }
+    .bar {
+      div {
+        --bar-bkg: #fff;
+      }
+    }
+    .hidden {
+    }
+  }
+  .filter-bar {
+    --filter-bkg: #fff;
+    --filter-text-color: $dark-grayish-blue;
   }
 }
 
 body.dark-theme {
   // dark-mode
-  // --text-color: #eee;
-  // --bkg-color: hsl(207, 26%, 17%);
-  header {
-    --h-bkg-color: hsl(209, 23%, 22%);
-    --h-text-color: #fff;
-  }
-  aside {
-    --aside-text-color: #fff;
-  }
-  .form-and-dropdown-container {
+  --text-color: hsl(236, 9%, 61%);
+  --bkg-color: hsl(235, 21%, 11%);
+  .main {
+    --main-bkg-img: url("/images/bg-mobile-dark.jpg");
+    .title-and-mode {
+      p {
+        --appname-text-color: hsl(0, 0%, 98%);
+      }
+      .color-mode {
+      }
+    }
     form {
-      input,
-      input::placeholder {
-        --i-bkg-color: hsl(209, 23%, 22%);
-        --i-text-color: #fff;
+      input {
+        --input-text-color: $dark-grayish-blue;
       }
     }
-    div {
-      select {
-        --s-bkg-color: hsl(209, 23%, 22%);
-        --s-text-color: #fff;
+    ul {
+      --ul-bkg-color: hsl(235, 24%, 19%);
+      --ul-text-color: $dark-grayish-blue;
+      li {
+        --li-bkg-color: hsl(235, 24%, 19%);
+        input {
+        }
+        p {
+        }
+        img {
+        }
+        .strike-through {
+          --strike-color: $light-grayish-blue;
+        }
       }
     }
-  }
-  .countries-container {
-    .each-country {
-      .info-container {
-        --inf-bkg-color: hsl(209, 23%, 22%);
-        --inf-text-color: #fff;
+    li:hover {
+      img {
       }
     }
-  }
-  .country-page-main {
-    .back-btn {
-      --back-bkg-color: hsl(209, 23%, 22%);
-      --back-text-color: #fff;
+    .bar {
+      div {
+        --bar-bkg: hsl(235, 24%, 19%);
+      }
+    }
+    .hidden {
     }
   }
-  .border {
-    --back-bkg-color: hsl(209, 23%, 22%);
-    --back-text-color: #fff;
+  .filter-bar {
+    --filter-bkg: hsl(235, 24%, 19%);
+    --filter-text-color: $dark-grayish-blue;
   }
 }
 
@@ -224,116 +261,156 @@ body.dark-theme {
   /* defaults to dark theme */
   body {
     // dark-mode
-    // --text-color: #eee;
-    // --bkg-color: hsl(207, 26%, 17%);
-    header {
-      --h-bkg-color: hsl(209, 23%, 22%);
-      --h-text-color: #fff;
-    }
-    aside {
-      --aside-text-color: #fff;
-    }
-    .form-and-dropdown-container {
+    --text-color: hsl(236, 9%, 61%);
+    --bkg-color: hsl(235, 21%, 11%);
+    .main {
+      --main-bkg-img: url("/images/bg-mobile-dark.jpg");
+      .title-and-mode {
+        p {
+          --appname-text-color: hsl(0, 0%, 98%);
+        }
+        .color-mode {
+        }
+      }
       form {
-        input,
-        input::placeholder {
-          --i-bkg-color: hsl(209, 23%, 22%);
-          --i-text-color: #fff;
+        input {
+          --input-text-color: $dark-grayish-blue;
         }
       }
-      div {
-        select {
-          --s-bkg-color: hsl(209, 23%, 22%);
-          --s-text-color: #fff;
+      ul {
+        --ul-bkg-color: hsl(235, 24%, 19%);
+        --ul-text-color: $dark-grayish-blue;
+        li {
+          --li-bkg-color: hsl(235, 24%, 19%);
+          input {
+          }
+          p {
+          }
+          img {
+          }
+          .strike-through {
+            --strike-color: $light-grayish-blue;
+          }
         }
       }
-    }
-    .countries-container {
-      .each-country {
-        .info-container {
-          --inf-bkg-color: hsl(209, 23%, 22%);
-          --inf-text-color: #fff;
+      li:hover {
+        img {
         }
       }
-    }
-    .country-page-main {
-      .back-btn {
-        --back-bkg-color: hsl(209, 23%, 22%);
-        --back-text-color: #fff;
+      .bar {
+        div {
+          --bar-bkg: hsl(235, 24%, 19%);
+        }
+      }
+      .hidden {
       }
     }
-    .border {
-      --back-bkg-color: hsl(209, 23%, 22%);
-      --back-text-color: #fff;
+    .filter-bar {
+      --filter-bkg: hsl(235, 24%, 19%);
+      --filter-text-color: $dark-grayish-blue;
     }
   }
   body.light-theme {
     // light-mode
-    // --text-color: hsl(200, 15%, 8%);
-    // --bkg-color: hsl(0, 0%, 98%);
-    header {
-      --h-bkg-color: #fff;
-      --h-text-color: hsl(200, 15%, 8%);
-    }
-    aside {
-      --aside-text-color: hsl(200, 15%, 8%);
-    }
-    .form-and-dropdown-container {
+
+    --text-color: hsl(236, 9%, 61%);
+    --bkg-color: hsl(0, 0%, 98%);
+    .main {
+      --main-bkg-img: url("/images/bg-mobile-light.jpg");
+      .title-and-mode {
+        p {
+          --appname-text-color: hsl(0, 0%, 98%);
+        }
+        .color-mode {
+        }
+      }
       form {
-        input,
-        input::placeholder {
-          --i-bkg-color: #fff;
-          --i-text-color: hsl(0, 0%, 52%);
+        input {
+          --input-text-color: $dark-grayish-blue;
         }
       }
-      div {
-        select {
-          --s-bkg-color: #fff;
-          --s-text-color: hsl(200, 15%, 8%);
+      ul {
+        --ul-bkg-color: #fff;
+        --ul-text-color: $dark-grayish-blue;
+        li {
+          --li-bkg-color: #fff;
+          input {
+          }
+          p {
+          }
+          img {
+          }
+          .strike-through {
+            --strike-color: $light-grayish-blue;
+          }
         }
       }
-    }
-    .countries-container {
-      .each-country {
-        .info-container {
-          --inf-bkg-color: #fff;
-          --inf-text-color: hsl(200, 15%, 8%);
+      li:hover {
+        img {
         }
       }
-    }
-    .country-page-main {
-      .back-btn {
-        --back-bkg-color: #fff;
-        --back-text-color: hsl(200, 15%, 8%);
+      .bar {
+        div {
+          --bar-bkg: #fff;
+        }
+      }
+      .hidden {
       }
     }
-    .border {
-      --back-bkg-color: #fff;
-      --back-text-color: hsl(200, 15%, 8%);
+    .filter-bar {
+      --filter-bkg: #fff;
+      --filter-text-color: $dark-grayish-blue;
     }
   }
-}
 
-body {
-  background: var(--bkg-color);
-  color: var(--text-color);
-  .main {
-    background: var(--main-bkg-img);
-    .title-and-mode {
-      p {
-        color: var(--appname-text-color);
+  body {
+    background: var(--bkg-color);
+    color: var(--text-color);
+    .main {
+      background: var(--main-bkg-img);
+      .title-and-mode {
+        p {
+          color: var(--appname-text-color);
+        }
+        .color-mode {
+        }
       }
-      .color-mode {
+      form {
+        input {
+          color: var(--input-text-color);
+        }
+      }
+      ul {
+        background: var(--ul-bkg-color);
+        color: var(--ul-text-color);
+        li {
+          background: var(--li-bkg-color);
+          input {
+          }
+          p {
+          }
+          img {
+          }
+          .strike-through {
+            color: var(--strike-color);
+          }
+        }
+      }
+      li:hover {
+        img {
+        }
+      }
+      .bar {
+        div {
+          background: var(--bar-bkg);
+        }
+      }
+      .hidden {
       }
     }
-    form {
-      input {
-        color: var(--input-text-color);
-      }
-    }
-    ul {
-      background: var(--ul-bkg-color);
-      color: var(--ul-text-color);
+    .filter-bar {
+      background: var(--filter-bkg);
+      color: var(--filter-text-color);
     }
   }
 }
