@@ -1,6 +1,8 @@
 @import "config";
 
-* {
+*,
+*::after,
+*::before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -26,7 +28,7 @@ body {
       letter-spacing: 0.8rem;
     }
     .color-mode {
-      outline: 1px solid red;
+      // outline: 1px solid red;
       display: grid;
       place-items: center;
     }
@@ -75,9 +77,7 @@ body {
         // outline: 1px solid red;
       }
       img {
-        // Using visibility because I want to maintain the layout.
-        // Consider mobile devices for this functionality!!
-        visibility: hidden;
+        cursor: pointer;
         // fill: $dark-grayish-blue;
       }
       .strike-through {
@@ -85,12 +85,7 @@ body {
         // color: $light-grayish-blue;
       }
     }
-    li:hover {
-      img {
-        visibility: visible;
-        cursor: pointer;
-      }
-    }
+
     .bar {
       outline: 1px solid $light-grayish-blue;
       order: 1;
