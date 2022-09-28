@@ -10,22 +10,25 @@
 }
 body {
   font-family: $josefin-sans;
-  background-color: $very-light-gray;
-  // background-color: $very-light-grayish-blue;
-  // background-color: $light-grayish-blue;
+  // background-color: $very-light-gray;
 }
 .main {
   height: 20rem;
   padding: 4rem 2rem 0 2rem;
-  background-image: url("/images/bg-mobile-light.jpg");
+  // background-image: url("/images/bg-mobile-light.jpg");
   .title-and-mode {
     display: flex;
     justify-content: space-between;
     p {
-      color: $very-light-gray;
+      // color: $very-light-gray;
       font-weight: 700;
       font-size: 3rem;
       letter-spacing: 0.8rem;
+    }
+    .color-mode {
+      outline: 1px solid red;
+      display: grid;
+      place-items: center;
     }
   }
   form {
@@ -50,12 +53,12 @@ body {
     box-shadow: 5px 0px 20px 0 rgba($color: #000000, $alpha: 0.2);
     list-style-type: none;
     position: relative;
-    background-color: #fff;
+    // background-color: #fff;
     display: flex;
     flex-direction: column;
     border-radius: 8px;
     overflow: hidden;
-    color: $dark-grayish-blue;
+    // color: $dark-grayish-blue;
     // outline: 1px solid red;
     // .bar {
     //   // outline: 1px solid red;
@@ -143,231 +146,194 @@ body {
 ///////////////////////////////
 //////////////Dark Mode////////
 //////////////////////////////
-// body {
-//   // light-mode
-//   --text-color: hsl(200, 15%, 8%);
-//   --bkg-color: hsl(0, 0%, 98%);
-//   header {
-//     --h-bkg-color: #fff;
-//     --h-text-color: hsl(200, 15%, 8%);
-//   }
-//   aside {
-//     --aside-text-color: hsl(200, 15%, 8%);
-//   }
-//   .form-and-dropdown-container {
-//     form {
-//       input {
-//         --i-bkg-color: #fff;
-//         --i-text-color: hsl(0, 0%, 52%);
-//       }
-//     }
-//     div {
-//       select {
-//         --s-bkg-color: #fff;
-//         --s-text-color: hsl(200, 15%, 8%);
-//       }
-//     }
-//   }
-//   .countries-container {
-//     .each-country {
-//       .info-container {
-//         --inf-bkg-color: #fff;
-//         --inf-text-color: hsl(200, 15%, 8%);
-//       }
-//     }
-//   }
-//   .country-page-main {
-//     .back-btn {
-//       --back-bkg-color: #fff;
-//       --back-text-color: hsl(200, 15%, 8%);
-//     }
-//   }
-//   .border {
-//     --back-bkg-color: #fff;
-//     --back-text-color: hsl(200, 15%, 8%);
-//   }
-// }
-// body.dark-theme {
-//   // dark-mode
-//   --text-color: #eee;
-//   --bkg-color: hsl(207, 26%, 17%);
-//   header {
-//     --h-bkg-color: hsl(209, 23%, 22%);
-//     --h-text-color: #fff;
-//   }
-//   aside {
-//     --aside-text-color: #fff;
-//   }
-//   .form-and-dropdown-container {
-//     form {
-//       input,
-//       input::placeholder {
-//         --i-bkg-color: hsl(209, 23%, 22%);
-//         --i-text-color: #fff;
-//       }
-//     }
-//     div {
-//       select {
-//         --s-bkg-color: hsl(209, 23%, 22%);
-//         --s-text-color: #fff;
-//       }
-//     }
-//   }
-//   .countries-container {
-//     .each-country {
-//       .info-container {
-//         --inf-bkg-color: hsl(209, 23%, 22%);
-//         --inf-text-color: #fff;
-//       }
-//     }
-//   }
-//   .country-page-main {
-//     .back-btn {
-//       --back-bkg-color: hsl(209, 23%, 22%);
-//       --back-text-color: #fff;
-//     }
-//   }
-//   .border {
-//     --back-bkg-color: hsl(209, 23%, 22%);
-//     --back-text-color: #fff;
-//   }
-// }
+body {
+  // light-mode
 
-// @media (prefers-color-scheme: dark) {
-//   /* defaults to dark theme */
-//   body {
-//     // dark-mode
-//     --text-color: #eee;
-//     --bkg-color: hsl(207, 26%, 17%);
-//     header {
-//       --h-bkg-color: hsl(209, 23%, 22%);
-//       --h-text-color: #fff;
-//     }
-//     aside {
-//       --aside-text-color: #fff;
-//     }
-//     .form-and-dropdown-container {
-//       form {
-//         input,
-//         input::placeholder {
-//           --i-bkg-color: hsl(209, 23%, 22%);
-//           --i-text-color: #fff;
-//         }
-//       }
-//       div {
-//         select {
-//           --s-bkg-color: hsl(209, 23%, 22%);
-//           --s-text-color: #fff;
-//         }
-//       }
-//     }
-//     .countries-container {
-//       .each-country {
-//         .info-container {
-//           --inf-bkg-color: hsl(209, 23%, 22%);
-//           --inf-text-color: #fff;
-//         }
-//       }
-//     }
-//     .country-page-main {
-//       .back-btn {
-//         --back-bkg-color: hsl(209, 23%, 22%);
-//         --back-text-color: #fff;
-//       }
-//     }
-//     .border {
-//       --back-bkg-color: hsl(209, 23%, 22%);
-//       --back-text-color: #fff;
-//     }
-//   }
-//   body.light-theme {
-//     // light-mode
-//     --text-color: hsl(200, 15%, 8%);
-//     --bkg-color: hsl(0, 0%, 98%);
-//     header {
-//       --h-bkg-color: #fff;
-//       --h-text-color: hsl(200, 15%, 8%);
-//     }
-//     aside {
-//       --aside-text-color: hsl(200, 15%, 8%);
-//     }
-//     .form-and-dropdown-container {
-//       form {
-//         input,
-//         input::placeholder {
-//           --i-bkg-color: #fff;
-//           --i-text-color: hsl(0, 0%, 52%);
-//         }
-//       }
-//       div {
-//         select {
-//           --s-bkg-color: #fff;
-//           --s-text-color: hsl(200, 15%, 8%);
-//         }
-//       }
-//     }
-//     .countries-container {
-//       .each-country {
-//         .info-container {
-//           --inf-bkg-color: #fff;
-//           --inf-text-color: hsl(200, 15%, 8%);
-//         }
-//       }
-//     }
-//     .country-page-main {
-//       .back-btn {
-//         --back-bkg-color: #fff;
-//         --back-text-color: hsl(200, 15%, 8%);
-//       }
-//     }
-//     .border {
-//       --back-bkg-color: #fff;
-//       --back-text-color: hsl(200, 15%, 8%);
-//     }
-//   }
-// }
+  --text-color: hsl(236, 9%, 61%);
+  --bkg-color: hsl(0, 0%, 98%);
+  .main {
+    --main-bkg-img: url("/images/bg-mobile-light.jpg");
+    .title-and-mode {
+      p {
+        --appname-text-color: hsl(0, 0%, 98%);
+      }
+      .color-mode {
+      }
+    }
+    form {
+      input {
+        --input-text-color: $dark-grayish-blue;
+      }
+    }
+    ul {
+      --ul-bkg-color: #fff;
+      --ul-text-color: $dark-grayish-blue;
+      li {
+      }
+    }
+  }
+}
 
-// body {
-//   background: var(--bkg-color);
-//   color: var(--text-color);
-//   header {
-//     background: var(--h-bkg-color);
-//     color: var(--h-text-color);
-//   }
-//   aside {
-//     color: var(--aside-text-color);
-//   }
-//   .form-and-dropdown-container {
-//     form {
-//       input,
-//       input::placeholder {
-//         background: var(--i-bkg-color);
-//         color: var(--i-text-color);
-//       }
-//     }
-//     div {
-//       select {
-//         background: var(--s-bkg-color);
-//         color: var(--s-text-color);
-//       }
-//     }
-//   }
-//   .countries-container {
-//     .each-country {
-//       .info-container {
-//         background: var(--inf-bkg-color);
-//         color: var(--inf-text-color);
-//       }
-//     }
-//   }
-//   .country-page-main {
-//     .back-btn {
-//       background: var(--back-bkg-color);
-//       color: var(--back-text-color);
-//     }
-//   }
-//   .border {
-//     background: var(--back-bkg-color);
-//     color: var(--back-text-color);
-//   }
-// }
+body.dark-theme {
+  // dark-mode
+  // --text-color: #eee;
+  // --bkg-color: hsl(207, 26%, 17%);
+  header {
+    --h-bkg-color: hsl(209, 23%, 22%);
+    --h-text-color: #fff;
+  }
+  aside {
+    --aside-text-color: #fff;
+  }
+  .form-and-dropdown-container {
+    form {
+      input,
+      input::placeholder {
+        --i-bkg-color: hsl(209, 23%, 22%);
+        --i-text-color: #fff;
+      }
+    }
+    div {
+      select {
+        --s-bkg-color: hsl(209, 23%, 22%);
+        --s-text-color: #fff;
+      }
+    }
+  }
+  .countries-container {
+    .each-country {
+      .info-container {
+        --inf-bkg-color: hsl(209, 23%, 22%);
+        --inf-text-color: #fff;
+      }
+    }
+  }
+  .country-page-main {
+    .back-btn {
+      --back-bkg-color: hsl(209, 23%, 22%);
+      --back-text-color: #fff;
+    }
+  }
+  .border {
+    --back-bkg-color: hsl(209, 23%, 22%);
+    --back-text-color: #fff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+  body {
+    // dark-mode
+    // --text-color: #eee;
+    // --bkg-color: hsl(207, 26%, 17%);
+    header {
+      --h-bkg-color: hsl(209, 23%, 22%);
+      --h-text-color: #fff;
+    }
+    aside {
+      --aside-text-color: #fff;
+    }
+    .form-and-dropdown-container {
+      form {
+        input,
+        input::placeholder {
+          --i-bkg-color: hsl(209, 23%, 22%);
+          --i-text-color: #fff;
+        }
+      }
+      div {
+        select {
+          --s-bkg-color: hsl(209, 23%, 22%);
+          --s-text-color: #fff;
+        }
+      }
+    }
+    .countries-container {
+      .each-country {
+        .info-container {
+          --inf-bkg-color: hsl(209, 23%, 22%);
+          --inf-text-color: #fff;
+        }
+      }
+    }
+    .country-page-main {
+      .back-btn {
+        --back-bkg-color: hsl(209, 23%, 22%);
+        --back-text-color: #fff;
+      }
+    }
+    .border {
+      --back-bkg-color: hsl(209, 23%, 22%);
+      --back-text-color: #fff;
+    }
+  }
+  body.light-theme {
+    // light-mode
+    // --text-color: hsl(200, 15%, 8%);
+    // --bkg-color: hsl(0, 0%, 98%);
+    header {
+      --h-bkg-color: #fff;
+      --h-text-color: hsl(200, 15%, 8%);
+    }
+    aside {
+      --aside-text-color: hsl(200, 15%, 8%);
+    }
+    .form-and-dropdown-container {
+      form {
+        input,
+        input::placeholder {
+          --i-bkg-color: #fff;
+          --i-text-color: hsl(0, 0%, 52%);
+        }
+      }
+      div {
+        select {
+          --s-bkg-color: #fff;
+          --s-text-color: hsl(200, 15%, 8%);
+        }
+      }
+    }
+    .countries-container {
+      .each-country {
+        .info-container {
+          --inf-bkg-color: #fff;
+          --inf-text-color: hsl(200, 15%, 8%);
+        }
+      }
+    }
+    .country-page-main {
+      .back-btn {
+        --back-bkg-color: #fff;
+        --back-text-color: hsl(200, 15%, 8%);
+      }
+    }
+    .border {
+      --back-bkg-color: #fff;
+      --back-text-color: hsl(200, 15%, 8%);
+    }
+  }
+}
+
+body {
+  background: var(--bkg-color);
+  color: var(--text-color);
+  .main {
+    background: var(--main-bkg-img);
+    .title-and-mode {
+      p {
+        color: var(--appname-text-color);
+      }
+      .color-mode {
+      }
+    }
+    form {
+      input {
+        color: var(--input-text-color);
+      }
+    }
+    ul {
+      background: var(--ul-bkg-color);
+      color: var(--ul-text-color);
+    }
+  }
+}
