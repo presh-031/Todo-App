@@ -9,9 +9,12 @@ const itemCountEl = document.querySelector(".items-count");
 const data = {};
 let itemCount = 0;
 
+filterBtnsColors();
+
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
+    // Validation
     if (newTaskInput.value) {
       acceptData();
       updateBarVisibility();
@@ -41,19 +44,12 @@ function addNewTask() {
 function updateCount(num) {
   itemCount = itemCount + num;
   itemCountEl.innerHTML = itemCount;
-
-  // Should only hidebar when there's no visible li
-  // }
-  // function hideBar() {
-  //   bar.classList.add("hidden");
-  // }
 }
 
 function updateBarVisibility() {
   bar.classList.remove("hidden");
 
   const allListItems = [...allTasks.children];
-  // console.log(allListItems.length);
   // The bar is one of the children elements of the allTasks ul (important for styling purposes)
   if (allListItems.length === 1) {
     bar.classList.add("hidden");
@@ -80,13 +76,11 @@ function editTask(e) {
 // Marking and unmarking tasks
 function editTaskStatus(e) {
   if (e.checked) {
-    // console.log("checked");
     e.nextElementSibling.classList.add("strike-through");
     updateCount(-1);
   } else {
     e.nextElementSibling.classList.remove("strike-through");
     updateCount(1);
-    // console.log("unchecked");
   }
 }
 
@@ -113,7 +107,6 @@ completedBtn.addEventListener("click", showCompletedTasks);
 function showCompletedTasks() {
   const allListItems = [...allTasks.children];
   allListItems.forEach((li) => {
-    // console.log(li.children);
     if (li.children[0].checked) {
       li.classList.remove("hidden");
     } else {
@@ -129,7 +122,6 @@ activeBtn.addEventListener("click", showActiveTasks);
 function showActiveTasks() {
   const allListItems = [...allTasks.children];
   allListItems.forEach((li) => {
-    // console.log(li.children);
     if (li.children[0].checked) {
       li.classList.add("hidden");
     } else {
@@ -148,11 +140,35 @@ function showAllTasks() {
 }
 
 //Update filterBtns colors
-const filterBtns = document.querySelectorAll(".filterBtn");
-filterBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    filterBtns.forEach((btn) => btn.classList.remove("clicked"));
-    btn.classList.add("clicked");
+function filterBtnsColors() {
+  const filterBtns = document.querySelectorAll(".filterBtn");
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach((btn) => btn.classList.remove("clicked"));
+      btn.classList.add("clicked");
+    });
   });
-});
-/////////////Dark Mode
+}
+///////////////////////////
+//////////////Dark Mode////
+///////////////////////////
+// const btn = document.querySelector(".right-section");
+// const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+// const currentTheme = localStorage.getItem("theme");
+// if (currentTheme == "dark") {
+//   document.body.classList.toggle("dark-theme");
+// } else if (currentTheme == "light") {
+//   document.body.classList.toggle("light-theme");
+// }
+
+// btn.addEventListener("click", function () {
+//   if (prefersDarkScheme.matches) {
+//     document.body.classList.toggle("light-theme");
+//     var theme = document.body.classList.contains("light-theme") ? "light" : "dark";
+//   } else {
+//     document.body.classList.toggle("dark-theme");
+//     var theme = document.body.classList.contains("dark-theme") ? "dark" : "light";
+//   }
+//   localStorage.setItem("theme", theme);
+// });
