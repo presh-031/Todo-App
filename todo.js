@@ -36,6 +36,7 @@ function addNewTask() {
     "<input onClick='editTaskStatus(this)' type='checkbox' class='checkbox'> " +
     // Will be adding an icon before the delete-icon for editing tasks instead.
     `<p onClick='editTask(this)' class='new-task'>${data.text}</p>` +
+    "<img onClick='editTask(this)' class='edit-task' src='./images/edit.png" +
     "<img onClick='deleteTask(this)' class='delete-task' src='./images/icon-cross.svg'>";
 
   allTasks.append(eachTask);
