@@ -80,6 +80,11 @@ body {
         cursor: pointer;
         // fill: $dark-grayish-blue;
       }
+      .edit-task {
+        width: 2rem;
+        // outline: 1px solid red;
+        margin-right: 1rem;
+      }
       .strike-through {
         text-decoration: line-through;
         // color: $light-grayish-blue;
